@@ -1,0 +1,339 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #3366ff;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            gap: 20px;
+        }
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        .form-container h2 {
+            margin: 0 0 20px;
+            font-size: 24px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .form-group input:focus {
+            outline: none;
+            border-color: #3366ff;
+        }
+        .form-group .error input {
+            border-color: red;
+        }
+        .form-group .error-message {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+            display: flex;
+            align-items: center;
+        }
+        .form-group .error-message i {
+            margin-right: 5px;
+        }
+        .form-group .toggle-password {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+        .form-group .toggle-password i {
+            font-size: 16px;
+        }
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #3366ff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #254eda;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h2>Signup</h2>
+            <div class="form-group">
+                <input type="email" placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <input type="password" placeholder="Create password">
+                <span class="toggle-password"><i class="fas fa-eye-slash"></i></span>
+            </div>
+            <div class="form-group">
+                <input type="password" placeholder="Confirm password">
+                <span class="toggle-password"><i class="fas fa-eye-slash"></i></span>
+            </div>
+            <button class="btn">Signup Now</button>
+        </div>
+        <div class="form-container">
+            <h2>Signup</h2>
+            <div class="form-group error">
+                <input type="email" value="codinglab@gmail">
+                <div class="error-message"><i class="fas fa-exclamation-circle"></i> Please enter a valid email address</div>
+            </div>
+            <div class="form-group error">
+                <input type="password" value="codinglab123">
+                <span class="toggle-password"><i class="fas fa-eye"></i></span>
+                <div class="error-message"><i class="fas fa-exclamation-circle"></i> Please enter at least 8 characters with number, symbol, capital and small letter</div>
+            </div>
+            <div class="form-group error">
+                <input type="password" value="codinglab12">
+                <span class="toggle-password"><i class="fas fa-eye"></i></span>
+                <div class="error-message"><i class="fas fa-exclamation-circle"></i> Password don't match.</div>
+            </div>
+            <button class="btn">Signup Now</button>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('.toggle-password').forEach(item => {
+            item.addEventListener('click', function() {
+                const input = this.previousElementSibling;
+                const icon = this.querySelector('i');
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                }
+            });
+        });
+    </script>
+</body>
+</html> 
+
+
+
+
+<!-- 
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #3366ff;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            gap: 20px;
+        }
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        .form-container h2 {
+            margin: 0 0 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .form-group input:focus {
+            outline: none;
+            border-color: #3366ff;
+        }
+        .form-group .fa-eye, .form-group .fa-eye-slash {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+        .form-group.error input {
+            border-color: red;
+        }
+        .form-group.error .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        .form-group.error .fa-eye, .form-group.error .fa-eye-slash {
+            color: red;
+        }
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #3366ff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #254eda;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h2>Signup</h2>
+            <div class="form-group">
+                <input type="email" id="email" placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <input type="password" id="password" placeholder="Create password">
+                <i class="fas fa-eye-slash" onclick="togglePasswordVisibility('password', this)"></i>
+            </div>
+            <div class="form-group">
+                <input type="password" id="confirmPassword" placeholder="Confirm password">
+                <i class="fas fa-eye-slash" onclick="togglePasswordVisibility('confirmPassword', this)"></i>
+            </div>
+            <button class="btn" onclick="validateForm()">Signup Now</button>
+        </div>
+        <div class="form-container">
+            <h2>Signup</h2>
+            <div class="form-group error">
+                <input type="email" value="codinglab@gmail">
+                <div class="error-message">
+                    <i class="fas fa-exclamation-circle"></i> Please enter a valid email address
+                </div>
+            </div>
+            <div class="form-group error">
+                <input type="password" value="codinglab123">
+                <i class="fas fa-eye"></i>
+                <div class="error-message">
+                    <i class="fas fa-exclamation-circle"></i> Please enter at least 8 characters with number, symbol, capital and small letter
+                </div>
+            </div>
+            <div class="form-group error">
+                <input type="password" value="codinglab12">
+                <i class="fas fa-eye"></i>
+                <div class="error-message">
+                    <i class="fas fa-exclamation-circle"></i> Password don't match.
+                </div>
+            </div>
+            <button class="btn">Signup Now</button>
+        </div>
+    </div>
+
+    <script>
+        function togglePasswordVisibility(id, icon) {
+            const input = document.getElementById(id);
+            if (input.type === "password") {
+                input.type = "text";
+                icon.classList.remove("fa-eye-slash");
+                icon.classList.add("fa-eye");
+            } else {
+                input.type = "password";
+                icon.classList.remove("fa-eye");
+                icon.classList.add("fa-eye-slash");
+            }
+        }
+
+        function validateForm() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            let isValid = true;
+
+            if (!validateEmail(email)) {
+                showError('email', 'Please enter a valid email address');
+                isValid = false;
+            } else {
+                clearError('email');
+            }
+
+            if (!validatePassword(password)) {
+                showError('password', 'Please enter at least 8 characters with number, symbol, capital and small letter');
+                isValid = false;
+            } else {
+                clearError('password');
+            }
+
+            if (password !== confirmPassword) {
+                showError('confirmPassword', "Password don't match.");
+                isValid = false;
+            } else {
+                clearError('confirmPassword');
+            }
+
+            if (isValid) {
+                alert('Form submitted successfully!');
+            }
+        }
+
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        function validatePassword(password) {
+            const re = /^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,}$/;
+            return re.test(password);
+        }
+
+        function showError(id, message) {
+            const formGroup = document.getElementById(id).parentElement;
+            formGroup.classList.add('error');
+            formGroup.querySelector('.error-message').innerText = message;
+        }
+
+        function clearError(id) {
+            const formGroup = document.getElementById(id).parentElement;
+            formGroup.classList.remove('error');
+            formGroup.querySelector('.error-message').innerText = '';
+        }
+    </script>
+</body>
+</html> -->
